@@ -21,59 +21,26 @@ Client = MongoClient()
 
 db = Client.get_database('app_db')
 db_movies = db.movies
-db_users = db.users
-db_ratings = db.ratings
+# db_users = db.users
+# db_ratings = db.ratings
 
 # count = db.rows.count_documents({})
 
 # db_test.insert_one({'i': "kjdsfsdfjsdlkfn"})
 movies = pd.read_csv('movies.dat', sep='::', names=['movie_id','movie_name','movie_tags'])
-links = pd.read_csv('links.csv', sep=',',dtype=str)
-links.columns = ["movie_id","imdbId","tmdbId"]
-# links.movie_id.apply(int)
-
-links["movie_id"] = links["movie_id"].astype(int)
 # users = pd.read_csv('users.dat', sep='::', names=['user_id','gender','age','occupation','zip_code'])
 # ratings = pd.read_csv('ratings.dat', sep='::', names=['user_id','movie_id','rating','timestamp'])
 
-
 n = 3892
-# keys = ["7db8c464","7db8c464","856db772","25550120"]
+keys = ["",]
 
-# keys = ["4b7932ba","ca9c5b","f8a0ad6e","7b7f806c"]
-
-keys = ["3635a730","ca9c5b","f8a0ad6e","7b7f806c"]
-
-def get_data(key,movie):
-
-
-    URL = "http://www.omdbapi.com/"
-
-    PARAMS = {'i':movie,'apikey':key} 
-  
-    r = requests.get(url = URL, params = PARAMS) 
-    data = r.json() 
-    return data
-
-
-result  = pd.merge(movies, links, on='movie_id')
-
-
-for index, row in result.iterrows():
-
-    if index > -1 :    
-        movie = row['movie_name'][:-6].strip()
-        year = row['movie_name'][-5:-1]
-        tags = row['movie_tags'].split("|")
-
-        data = get_data(keys[int(index/(n/4))],"tt"+row['imdbId'])
-        # data = {}
-
-        tt = {"movie_id":row['movie_id'],"imdbId":row['imdbId'],"movie_name": movie, "year":year,"tags":tags, "data": data}
-        if not (db_movies.update(tt, tt,  upsert = True)['updatedExisting']):
-            print(index,"insert || ",tt['movie_name'],'||' ,row['movie_name'])
+for index, row in db_movies.iterrows():
+    if index > 577652:
+        tt = {"user_id":int(row['user_id']),"movie_id":int(row['movie_id']),"rating":int(row['rating']),"timestamp":int(row['timestamp'])}
+        if not (db_ratings.update(tt, tt,  upsert = True)['updatedExisting']):
+            print(index, " || insert || ",tt['user_id'])
         else:
-            print(index,"update || ",tt['movie_name'])
+            print(index," || update || ",tt['user_id'])
 
 # # print(movies.head())
 # # print("start")
