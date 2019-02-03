@@ -1,0 +1,248 @@
+{% extends "layout1.html" %}
+
+{% block content %}
+		<div class="row">
+
+				<div id="demo"></div>
+				<div id="demo1"></div>
+				<div id="demo2"></div>
+				<div id="demo3"></div>
+				<div id="demo4"></div>
+				<div id="map" ></div>
+		</div>
+		<div class="modal fade" id="myModal123456789" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> 
+				<div class="modal-dialog" role="document"> 
+						<div class="moviecard">
+								<!-- <div class="movie-poster play-trailer" ></div>-->
+								 <div>
+										<form>
+												
+											<div id="pays_div" class="form-group  col-md-10 col-lg-offset-2">
+												<label for="select_model1">Models </label>
+												<select id="select_model1" class="form-control">
+														
+														<option value="2">Matrix factorisation</option>
+														<option value="4">Non-negative Matrix factorisation</option>
+														<option value="3">Simple Neural Network</option>
+														<option value="1">Advanced Neural Network </option>
+
+												</select>
+						
+											</div>
+										</form>
+								</div> 
+								<div class="igs">
+									<img class="img_acc" src="" alt="">
+									<img class="img_matrix" src="" alt="">
+								</div>
+								<div class="accur">
+
+								</div>
+						</div>
+					
+				</div>
+		</div>
+{% endblock %}
+{% block scripts %}
+
+
+<script src="https://cdn.zoomcharts-cloud.com/1/latest/zoomcharts.js"></script>
+<script lang="text/javascript" src="{{ url_for('static', filename='scripts/jqcloud-1.0.4.js') }}"></script>
+<script>
+
+	var doc ={1:"89.93%",2:"65.2%",3:"65.1%",4:"65.5%"}
+	var imgs_accu ={1:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228083/imgs/1.png",2:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228083/imgs/2.png",3:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228083/imgs/3.png",4:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228083/imgs/4.png"}
+	var imgs_mat ={1:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228084/imgs/mat-1.png",2:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228083/imgs/mat-2.png",3:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228083/imgs/mat-3.png",4:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228083/imgs/mat-4.png"}
+		
+	var	chart= new PieChart({
+    interaction: {
+        mode: "select",
+        resizing: {
+            enabled: false
+        }
+    },
+    pie: {
+        innerRadius: 0
+    },
+    slice: {
+        expandableMarkStyle: {
+            lineWidth: 0
+        }
+    },
+    container: "demo",
+    data: [
+        {
+            url: "http://127.0.0.1:5000/api/work/"
+        }
+    ],
+    toolbar: {
+        fullscreen: true,
+        enabled: true
+    }
+})
+
+	var	chart2= new FacetChart({
+			series: [
+				{
+					name: "Totale",
+					data: {
+						field: "totale",
+						// aggregation: "avg"
+					},
+					style: {
+						fillColor: "#56b9f7"
+					},
+					type: "columns"
+				},
+				{
+					name: "Positive",
+					data: {
+						field: "positive",
+						// aggregation: "avg"
+					},
+					style: {
+						fillColor: "#2fc32f"
+					},
+					type: "columns"
+				},
+				{
+					name: "Negative",
+					data: {
+						field: "negative",
+						// aggregation: "avg"
+					},
+					style: {
+						fillColor: "#de672c"
+					},
+					type: "columns"
+				}
+			],
+			container: "demo1",
+			data: [
+				{
+					url: "http://127.0.0.1:5000/api/ueractif/"
+				}
+			],
+			toolbar: {
+				fullscreen: true,
+				enabled: true
+			},
+			interaction: {
+				resizing: {
+					enabled: false
+				}
+			}
+		})
+
+	var	chart3= chart= new FacetChart({
+    series: [
+        {
+            name: "nb Movies",
+            data: {
+                field: "totale",
+                aggregation: "sum"
+            },
+            style: {
+                smoothing: true,
+                fillColor: "#2fc32f"
+            },
+            stack: "default",
+            type: "line"
+        }
+    ],
+    stacks: {
+        default: {
+            type: "normal"
+        }
+    },
+    container: "demo2",
+    data: [
+        {
+            url: "http://127.0.0.1:5000/api/evoyers/"
+        }
+    ],
+    toolbar: {
+        fullscreen: true,
+        enabled: true
+    },
+    interaction: {
+        resizing: {
+            enabled: false
+        }
+    }
+})
+
+	var	chart4= new PieChart({
+    pie: {
+        innerRadius: 0.7
+    },
+    container: "demo3",
+    data: [
+        {
+            url: "http://127.0.0.1:5000/api/realisateur/"
+        }
+    ],
+    toolbar: {
+        fullscreen: true,
+        enabled: true
+    },
+    interaction: {
+        resizing: {
+            enabled: false
+        }
+    }
+})
+
+
+	var chart5= new FacetChart({
+    series: [
+        {
+            name: "Count",
+			data: {
+				field: "count",
+                aggregation: "sum"
+            },
+            style: {
+                fillColor: "#2fc32f"
+            }
+		}
+    ],
+    container: "demo4",
+    data: [
+        {
+            url: "http://127.0.0.1:5000/api/topmovie/"
+        }
+    ],
+    toolbar: {
+        fullscreen: true,
+        enabled: true
+    },
+    interaction: {
+        resizing: {
+            enabled: false
+        }
+    }
+})
+
+	$.get("http://127.0.0.1:5000/api/cloud/", function (data) {
+
+                $('#map').empty().jQCloud($.parseJSON(data),{
+                    height: 500,
+                    width:1070,
+                    autoResize: true,
+                    delay: 50
+                });
+            });
+
+	$('#select_model1').on("change", function () {
+		
+		var key = $(this).val()
+		$(".accur").empty().append(doc[parseInt(key)])
+		$(".img_matrix").attr("src",imgs_mat[parseInt(key)]);
+		$(".img_acc").attr("src",imgs_accu[parseInt(key)]);
+	}).trigger("change")
+               
+				
+
+</script>
+{% endblock %}
