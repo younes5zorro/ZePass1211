@@ -18,7 +18,7 @@ import pandas as pd
 # # import pickle
 
 
-from keras.models import load_model
+# from keras.models import load_model
 from pymongo import MongoClient
 app = Flask(__name__)
 
@@ -30,7 +30,7 @@ db_ratings = db.ratings
 db_ratusers = db.ratusers
 
 def page_acceuil():
-    return render_template('home1.html')
+    return render_template('home2.html')
 
 def users(limit):
     users = db_ratusers.find({}).limit(int(limit))
@@ -38,9 +38,12 @@ def users(limit):
 
 def movis_user(user):
     dic2={}
-    users = db_ratusers.find({"user_id":int(user)})
-    for us in users:
-        dic2 = db_movies.find( { "movie_id":{"$in" : us['rating_list'] }} ).limit(20)
+
+    useratings = db_ratings.find({"user_id":int(user)}).sort( [("rating", -1)]  ).limit(10)
+    # users = db_ratusers.find({"user_id":int(user)})
+
+    lisii = [u["movie_id"] for u in useratings]
+    dic2 = db_movies.find( { "movie_id":{"$in" : lisii }} ).limit(10)
     return json_util.dumps((dic2))
 
 def findbb(user,model):
@@ -67,7 +70,7 @@ def findbb(user,model):
 
     # predictions = predictions.argmax(axis=-1)
     # print(list(dict(sorted(dic.items(), key=operator.itemgetter(1), reverse=True)[:5]).keys()))
-    best5 = list(dict(sorted(dic.items(), key=operator.itemgetter(1), reverse=True)[:5]).keys())
+    best5 = list(dict(sorted(dic.items(), key=operator.itemgetter(1), reverse=True)[:10]).keys())
     dic2 = db_movies.find( { "movie_id": {"$in" : best5} } )
     return json_util.dumps((dic2))
 

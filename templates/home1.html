@@ -284,11 +284,12 @@
 									
 								</div>
 							</div>
-		</div>
+		    </div>
 		<div class="modals">
 
 		</div>
 			 
+</div>	
 </div>	
 
 <script>
@@ -329,16 +330,16 @@
 
 			})
 			
-            $('#select_user').on("change", function () {
+        $('#select_user').on("change", function () {
 				$.get("http://127.0.0.1:5000/api/movie_user/"+$(this).val(), function (data) {
-				$('.tab_1 tbody').empty();
+			        	$('.tab_1 tbody').empty();
                 $.each(JSON.parse(data), function (i, item) {
 
                     $(".tab_1 tbody").append($('<tr data-id='+item.movie_id+'><td>'+item.movie_name+'</td><td>'+item.year+'</td><td><button type="button" class="btn btn-sm" data-toggle="modal" data-target="#myModal-'+item.movie_id+'">More</button></td></tr>'));
-					$.get("http://www.omdbapi.com/?t="+item.movie_name+"&y="+item.year+"&apikey=67ac82f3", function (data1) {
-						if(data1.Response){
-							$(".modals").append('<div class="modal fade" id="myModal-'+item.movie_id+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> \
-							<div class="modal-dialog" role="document"> \
+					          $.get("http://www.omdbapi.com/?t="+item.movie_name+"&y="+item.year+"&apikey=67ac82f3", function (data1) {
+						        if(data1.Response){
+						          	$(".modals").append('<div class="modal fade" id="myModal-'+item.movie_id+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> \
+							        <div class="modal-dialog" role="document"> \
 									<div class="moviecard">\
 									<div class="movie-poster play-trailer" style="background: url(\''+data1.Poster+'\');background-size: cover;"></div>\
 									<div id="movie-content">\
