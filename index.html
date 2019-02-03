@@ -4,122 +4,154 @@
 	<meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="static/bootstrap.min.js"></script>
+    <script src="static/css/jquery.film_roll.min.js"></script>
+    <script src="static/css/jquery.touchSwipe.min.js"></script>
     <link href="static/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="static/css/home.css" rel="stylesheet"/>
     <style>
-    /* carousel */
-.media-carousel 
-{
-  margin-bottom: 0;
-  padding: 0 40px 30px 40px;
-  margin-top: 30px;
-}
-/* Previous button  */
-.media-carousel .carousel-control.left 
-{
-  left: -12px;
-  background-image: none;
-  background: none repeat scroll 0 0 #222222;
-  border: 4px solid #FFFFFF;
-  border-radius: 23px 23px 23px 23px;
-  height: 40px;
-  width : 40px;
-  margin-top: 30px
-}
-/* Next button  */
-.media-carousel .carousel-control.right 
-{
-  right: -12px !important;
-  background-image: none;
-  background: none repeat scroll 0 0 #222222;
-  border: 4px solid #FFFFFF;
-  border-radius: 23px 23px 23px 23px;
-  height: 40px;
-  width : 40px;
-  margin-top: 30px
-}
-/* Changes the position of the indicators */
-.media-carousel .carousel-indicators 
-{
-  right: 50%;
-  top: auto;
-  bottom: 0px;
-  margin-right: -19px;
-}
-/* Changes the colour of the indicators */
-.media-carousel .carousel-indicators li 
-{
-  background: #c0c0c0;
-}
-.media-carousel .carousel-indicators .active 
-{
-  background: #333333;
-}
-.media-carousel img
-{
-  width: 250px;
-  height: 100px
-}
+ 
     </style>    
 
 	
 </head>
 <body>
     
-
-<div class="container">
-  <div class="row">
-    <h2>Media Slider Carousel BS3</h2>
-  </div>
-  <div class='row'>
-    <div class='col-md-8'>
-      <div class="carousel slide media-carousel" id="media">
-        <div class="carousel-inner">
-          <div class="item  active">
-            <div class="row">
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-              </div>          
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-              </div>
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-              </div>        
-            </div>
+  <div class="row container_id">
+    
+    <div class="example-2 card">
+      <div class="wrapper" style="background: url(https://m.media-amazon.com/images/M/MV5BYjg4ZjUzMzMtYzlmYi00YTcwLTlkOWUtYWFmY2RhNjliODQzXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg) center/cover no-repeat;">
+        <div class="header">
+          <div class="date">
+            04 Aug 1995
           </div>
-          <div class="item">
-            <div class="row">
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-              </div>          
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-              </div>
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-              </div>        
-            </div>
-          </div>
-          <div class="item">
-            <div class="row">
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-              </div>          
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-              </div>
-              <div class="col-md-4">
-                <a class="thumbnail" href="#"><img alt="" src="http://placehold.it/150x150"></a>
-              </div>      
-            </div>
+          <ul class="menu-content">
+            <li>
+              <a href="#" class="fa fa-bookmark-o"></a>
+            </li>
+            <li><a class="fa fa-heart-o"><span>6.8</span></li>
+            <li><a class="fa fa-comment-o"><span class="star">★</span></li>
+          </ul>
+        </div>
+        <div class="data">
+          <div class="content">
+            <a href="#" class="button">Read more</a>
           </div>
         </div>
-        <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
-        <a data-slide="next" href="#media" class="right carousel-control">›</a>
-      </div>                          
+      </div>
+    </div>
+
+    <div class="example-2 card">
+      <div class="wrapper" style="background: url(https://m.media-amazon.com/images/M/MV5BYjg4ZjUzMzMtYzlmYi00YTcwLTlkOWUtYWFmY2RhNjliODQzXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg) center/cover no-repeat;">
+        <div class="header">
+          <div class="date">
+            04 Aug 1995
+          </div>
+          <ul class="menu-content">
+            <li>
+              <a href="#" class="fa fa-bookmark-o"></a>
+            </li>
+            <li><a class="fa fa-heart-o"><span>6.8</span></li>
+            <li><a class="fa fa-comment-o"><span class="star">★</span></li>
+          </ul>
+        </div>
+        <div class="data">
+          <div class="content">
+            <a href="#" class="button">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-2 card">
+      <div class="wrapper" style="background: url(https://m.media-amazon.com/images/M/MV5BYjg4ZjUzMzMtYzlmYi00YTcwLTlkOWUtYWFmY2RhNjliODQzXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg) center/cover no-repeat;">
+        <div class="header">
+          <div class="date">
+            04 Aug 1995
+          </div>
+          <ul class="menu-content">
+            <li>
+              <a href="#" class="fa fa-bookmark-o"></a>
+            </li>
+            <li><a class="fa fa-heart-o"><span>6.8</span></li>
+            <li><a class="fa fa-comment-o"><span class="star">★</span></li>
+          </ul>
+        </div>
+        <div class="data">
+          <div class="content">
+            <a href="#" class="button">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="example-2 card">
+      <div class="wrapper" style="background: url(https://m.media-amazon.com/images/M/MV5BYjg4ZjUzMzMtYzlmYi00YTcwLTlkOWUtYWFmY2RhNjliODQzXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg) center/cover no-repeat;">
+        <div class="header">
+          <div class="date">
+            04 Aug 1995
+          </div>
+          <ul class="menu-content">
+            <li>
+              <a href="#" class="fa fa-bookmark-o"></a>
+            </li>
+            <li><a class="fa fa-heart-o"><span>6.8</span></li>
+            <li><a class="fa fa-comment-o"><span class="star">★</span></li>
+          </ul>
+        </div>
+        <div class="data">
+          <div class="content">
+            <a href="#" class="button">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="example-2 card">
+      <div class="wrapper" style="background: url(https://m.media-amazon.com/images/M/MV5BYjg4ZjUzMzMtYzlmYi00YTcwLTlkOWUtYWFmY2RhNjliODQzXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg) center/cover no-repeat;">
+        <div class="header">
+          <div class="date">
+            04 Aug 1995
+          </div>
+          <ul class="menu-content">
+            <li>
+              <a href="#" class="fa fa-bookmark-o"></a>
+            </li>
+            <li><a class="fa fa-heart-o"><span>6.8</span></li>
+            <li><a class="fa fa-comment-o"><span class="star">★</span></li>
+          </ul>
+        </div>
+        <div class="data">
+          <div class="content">
+            <a href="#" class="button">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-2 card">
+      <div class="wrapper" style="background: url(https://m.media-amazon.com/images/M/MV5BYjg4ZjUzMzMtYzlmYi00YTcwLTlkOWUtYWFmY2RhNjliODQzXkEyXkFqcGdeQXVyNTUyMzE4Mzg@._V1_SX300.jpg) center/cover no-repeat;">
+        <div class="header">
+          <div class="date">
+            04 Aug 1995
+          </div>
+          <ul class="menu-content">
+            <li>
+              <a href="#" class="fa fa-bookmark-o"></a>
+            </li>
+            <li><a class="fa fa-heart-o"><span>6.8</span></li>
+            <li><a class="fa fa-comment-o"><span class="star">★</span></li>
+          </ul>
+        </div>
+        <div class="data">
+          <div class="content">
+            <a href="#" class="button">Read more</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </body>
 
 <script>
@@ -129,8 +161,10 @@ $(document).ready(function() {
         //     interval: false,
         // });
 
-        $('#media').carousel({ pause: false,interval: 200000 })
-
+        var film_roll = new FilmRoll({
+             container: '.container_id',
+             pager:false
+         });
         });
 </script>
 </html>
