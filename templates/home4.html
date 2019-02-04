@@ -3,18 +3,27 @@
 {% block content %}
 		<div class="row">
 
-				<div id="demo"></div>
-				<div id="demo1"></div>
-				<div id="demo2"></div>
-				<div id="demo3"></div>
-				<div id="demo4"></div>
-				<div id="map" ></div>
+            <div class="r1 col-md-12">
+				<div id="demo" class="shad col-md-5"></div>
+                <div id="demo1" class="shad col-md-6"></div>
+            </div>
+            <div class="r1 col-md-12">
+                <div id="demo2" class="shad"></div>
+            </div>
+            <div class="r1 col-md-12">
+                <div id="demo3" class="shad col-md-5"></div>
+				<div id="demo4" class="shad col-md-6"></div>
+            </div>
+			<div class="r1 col-md-12">
+				<div id="map" class="shad" ></div>
+
+            </div>	
 		</div>
 		<div class="modal fade" id="myModal123456789" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> 
 				<div class="modal-dialog" role="document"> 
-						<div class="moviecard">
+						<div class="boxpopup col-md-12">
 								<!-- <div class="movie-poster play-trailer" ></div>-->
-								 <div>
+								 <div class="col-md-12">
 										<form>
 												
 											<div id="pays_div" class="form-group  col-md-10 col-lg-offset-2">
@@ -31,11 +40,11 @@
 											</div>
 										</form>
 								</div> 
-								<div class="igs">
-									<img class="img_acc" src="" alt="">
-									<img class="img_matrix" src="" alt="">
+								<div class="igs col-md-12">
+									<img class="img_acc col-md-6" src="" alt="">
+									<img class="img_matrix col-md-6" src="" alt="">
 								</div>
-								<div class="accur">
+								<div class="accur col-md-12">
 
 								</div>
 						</div>
@@ -49,6 +58,14 @@
 <script src="https://cdn.zoomcharts-cloud.com/1/latest/zoomcharts.js"></script>
 <script lang="text/javascript" src="{{ url_for('static', filename='scripts/jqcloud-1.0.4.js') }}"></script>
 <script>
+    var ZoomChartsLicense = "ZCP-2jt1vsq8o: ZoomCharts SDK for PeaQock";
+    var ZoomChartsLicenseKey = '1a89ca2621b420a6ab144f910ccc8cf7895f869f01d4c4de4a' +
+    'aa67351f0416d83b09b7dea54d22a9c20a90783cf2796de366fd0a018f13790a36dc24cf7a1c5' +
+    '290870c84f74844621e4ab5229681bcb229dd2fc90aaa6454af1578c81fe2056c97c29cef15c1' +
+    'c606fc70e1fd7d89f978b7fe9d6e97387b2b16304a99f87c92729d821947c312144f1a8b6d57d' +
+    'ffd1448da030a3578143b62f1f4a0b0fe1d2efb1670416898d86369c5059d1db5acf457b07448' +
+    '3f24d4db6b98767566eafef4b259f9e59a12bd38ea15be4f2c3d681606c9f695032892c19091c' +
+    'a8d8af12f5dc21dbc6035dc647e945a17d39d67e17bbde56ce9311cab3d38d70e6db842771adc';
 
 	var doc ={1:"89.93%",2:"65.2%",3:"65.1%",4:"65.5%"}
 	var imgs_accu ={1:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228083/imgs/1.png",2:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228083/imgs/2.png",3:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228083/imgs/3.png",4:"https://res.cloudinary.com/df9qpnhlw/image/upload/v1549228083/imgs/4.png"}
@@ -144,7 +161,7 @@
             },
             style: {
                 smoothing: true,
-                fillColor: "#2fc32f"
+                fillColor: "#56b9f7"
             },
             stack: "default",
             type: "line"
@@ -236,10 +253,15 @@
 
 	$('#select_model1').on("change", function () {
 		
-		var key = $(this).val()
-		$(".accur").empty().append(doc[parseInt(key)])
-		$(".img_matrix").attr("src",imgs_mat[parseInt(key)]);
-		$(".img_acc").attr("src",imgs_accu[parseInt(key)]);
+        var key = $(this).val()
+        $(".img_acc").fadeOut();
+        $(".img_matrix").fadeOut();
+        $(".accur").fadeOut();
+
+		$(".accur").empty().append("<div> Accuracy :<strong>"+doc[parseInt(key)]+"</strong></div>").fadeIn()
+		$(".img_matrix").attr("src",imgs_mat[parseInt(key)]).fadeIn();
+        $(".img_acc").attr("src",imgs_accu[parseInt(key)]).fadeIn();
+
 	}).trigger("change")
                
 				

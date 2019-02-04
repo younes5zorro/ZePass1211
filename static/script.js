@@ -1,7 +1,8 @@
 $(function () {
             $("#btn_recd").click(function(){
 				$.get("http://127.0.0.1:5000/api/find/"+$('#select_user').val()+"/"+$('#select_model').val(), function (data) {
-					$('.container_id1').empty();
+                    $('.container_id1').fadeOut();
+                    $('.container_id1').empty();
                     $(".container_id1").append($("<h1>Recommendation For User </h1>"));
                     $(".container_id1").append($("<div class='fillrec-"+$('#select_user').val()+"' ></div>"));
 
@@ -54,8 +55,9 @@ $(function () {
                         pager:false,
                         configure_load: true,
                     });
+                    $('.container_id1').fadeIn("slow")
                 })
-
+                
 
             });
 		

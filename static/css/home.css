@@ -4,11 +4,23 @@
   box-sizing: border-box;
 }
 
-body {
+
+body
+ {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   font-family: "Open Sans", sans-serif;
+  /* background: url('movies.jpg') center/cover no-repeat; */
+
+  background-image: url(movies.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+
+  color: #eb8739;
 }
 
 a {
@@ -386,3 +398,49 @@ span.star {
   .moviecard.movie-view-trailer .movie-trailer #youvideo {
     height: 100%;
   }
+
+  .row{
+    max-width: 1150px;
+  }
+  
+  #demo,#demo3{
+    margin-right: 61px;
+    margin-left: 20px;
+  }
+  .r1{
+    margin-top: 20px;
+    box-shadow: 1px 1px 12px #555;
+    background: #f1e7dc;
+    border-radius: 20px;
+
+  }
+
+  .boxpopup {
+    font-family: 'Helvetica', sans-serif, 'Ariel';
+    position: relative; 
+    background: #ffffff;
+    color: #555555;
+    
+    min-width: 900px;
+    min-height: 300px;
+    padding: 48px 42px 34px 20px;
+    -moz-box-shadow: -5px 5px 15px;
+    -webkit-box-shadow: -5px 5px 15px;
+    box-shadow: 1px 5px 15px;
+    border-radius: 5px;
+}
+
+.igs img{
+  width: 402px;
+  height: 310px;
+}
+.accur{
+  text-align: center;
+    line-height: 27px;
+    font-size: 21px;
+}
+
+.navbar-default {
+  background-color:transparent !important;
+  border-color: transparent !important;
+}

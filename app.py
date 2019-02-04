@@ -50,9 +50,7 @@ def cloud():
     
     dic2 = db_movies.find({},{"data.Genre":1})
     
-    # for word in word_list: 
-    #     d[word] = d.get(word, 0) + 1
-
+    
     for dd in dic2:
         words.extend(u for u in (dd["data"]["Genre"]).split(",") )
 
@@ -61,16 +59,6 @@ def cloud():
 
     for key in d:
         ls.append({'text': key, 'weight': d[key]})
-    # words = [
-    # {'text': "Lorem", 'weight': 13},
-    # {'text': "Ipsum", 'weight': 10.5},
-    # {'text': "Dolor", 'weight': 9.4},
-    # {'text': "Sit", 'weight': 8},
-    # {'text': "Amet", 'weight': 6.2},
-    # {'text': "Consectetur", 'weight': 5},
-    # {'text': "Adipiscing", 'weight': 5},
-
-    # ];
     return json_util.dumps((ls))
 
 def moviestop():
@@ -177,7 +165,7 @@ def ueractif():
 
 
     for d in dic2:
-        ls.append({"name":d['_id'],"id":d['_id'],"totale":d["count"],"positive":d['countBigger'],"negative":d['countSmaller']})
+        ls.append({"name":"User-"+str(d['_id']),"id":d['_id'],"totale":d["count"],"positive":d['countBigger'],"negative":d['countSmaller']})
 
     di["subvalues"] = ls
 
@@ -275,8 +263,8 @@ def test(user):
     
 
 # routes app
-app.add_url_rule('/', 'index', page_acceuil, methods=['GET'])
-app.add_url_rule('/dash', 'dash', page_home4, methods=['GET'])
+app.add_url_rule('/index', 'index', page_acceuil, methods=['GET'])
+app.add_url_rule('/', 'dash', page_home4, methods=['GET'])
 
 
 app.add_url_rule('/api/get/<id>/<txt>', 'test', test, methods=['GET'])

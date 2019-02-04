@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/jqcloud.css') }}">
 
         <script src="{{ url_for('static', filename='script.js') }}"></script>
-            <title>Movies </title>
+        <title>Movies </title>
     {% endblock %}
 </head>
 <body>
@@ -28,33 +28,28 @@
         <!-- Static navbar -->
         <nav class="navbar navbar-default">
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                            aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{{ url_for('index') }}"><img
-                            src="{{ url_for('static', filename='img/logo.png') }}" alt=""></a>
-                </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
 
                        
                         {% if select == "dash" %}
-                                 <li><a href="{{ url_for('index') }}">Recommende</a></li>
-                                 <li> <a data-toggle="modal" data-target="#myModal123456789">Models</a></li>
+                                 <li><a href="{{ url_for('index') }}"><img src="https://raw.githubusercontent.com/younes5zorro/app_stage_angular_client/master/src/assets/rebo.png"  style="width: 35px;height: 36px;" alt="">Recommende</a></li>
+                                 <li> <a data-toggle="modal" data-target="#myModal123456789"><img src="https://raw.githubusercontent.com/younes5zorro/app_stage_angular_client/master/src/assets/asset.png"  style="width: 35px;height: 36px;" alt="">  Models</a> </li>
 
                         {% else %}
-                             <li><a href="{{ url_for('dash') }}">Dash</a></li>
+                             <li><a href="{{ url_for('dash') }}"><img src="https://raw.githubusercontent.com/younes5zorro/app_stage_angular_client/master/src/assets/composition.png"  style="width: 35px;height: 36px;" alt=""> Dashboard</a></li>
                             
                         {% endif %}
 
 
 
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a target="_blank" href="https://www.facebook.com/younes.saad.77">Younes JAOUIRI</a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100006614358762"> Mohammed BASTA </a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/datasciencefssm/">Big Data Analytics</a></li>
+                      </ul>
+
                 </div>
             </div>
         </nav>
@@ -64,10 +59,7 @@
 
     {% endblock %}
 
-    <div class="footer">
-        Younes JAOUIRI &ensp; &ensp; - &ensp; &ensp; Mohammed BASTA &ensp; &ensp; - &ensp; &ensp; Statistiques &ensp;
-        &ensp; - &ensp; &ensp; Master DS &ensp; &ensp; - &ensp; &ensp; 2017/2018
-    </div>
+   
 </div>
 
 
