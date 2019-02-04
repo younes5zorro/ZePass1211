@@ -1,17 +1,14 @@
 {% extends "layout1.html" %}
 
 {% block content %}
-		<div class="row">
-				<div class="region_div col-lg-10 col-lg-offset-1">
+
+		<div class="row mar">
+				<div class="region_div col-lg-4">
+						<!-- <div class="region_div col-lg-10 col-lg-offset-3"> -->
 					<form>
-						<div class="form-group col-md-4">
-							<label for="select_user">Users </label>
-							<select id="select_user" class="form-control">
-							</select>
-	
-						</div>
-						<div id="pays_div" class="form-group col-md-6">
-							<label for="select_model">Models </label>
+						
+						<div id="pays_div" class="form-group col-md-12">
+							<!-- <label for="select_model">Models </label> -->
 							<select id="select_model" class="form-control">
 									
 								<option value="2">Matrix factorisation</option>
@@ -22,21 +19,27 @@
 							</select>
 	
 						</div>
+						<div class="form-group col-md-12">
+								<!-- <label for="select_user">Users </label> -->
+								<select id="select_user" class="form-control">
+								</select>
+		
+							</div>
 					</form>
 
-						<div class="form-group col-md-2">
-								<label for="select_model">       </label>
-								<button class="form-control" id ="btn_recd">Recommande</button>
+						<div class="form-group col-md-5	">
+								<!-- <label for="select_model">                              </label> -->
+								<button class="form-control" id ="btn_recd">Recommander</button>
 								
-				</div>
+						</div>
         </div>
         
 
     			 
     </div>
-    <div class="row container_id1" style="display:none">
+    <div class="row mar container_id1" style="display:none">
     </div>
-    <div class="row container_id">
+    <div class="row mar container_id">
     </div>
 		<div class="modals">
 

@@ -33,11 +33,11 @@
 
                        
                         {% if select == "dash" %}
-                                 <li><a href="{{ url_for('index') }}"><img src="https://raw.githubusercontent.com/younes5zorro/app_stage_angular_client/master/src/assets/rebo.png"  style="width: 35px;height: 36px;" alt="">Recommende</a></li>
-                                 <li> <a data-toggle="modal" data-target="#myModal123456789"><img src="https://raw.githubusercontent.com/younes5zorro/app_stage_angular_client/master/src/assets/asset.png"  style="width: 35px;height: 36px;" alt="">  Models</a> </li>
+                                 <li><a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='css/hmida.png') }}"  style="width: 35px;height: 36px;" alt=""></a></li>
+                                 <li> <a data-toggle="modal" data-target="#myModal123456789"><img src="{{ url_for('static', filename='css/hmida2.png') }}"  style="width: 35px;height: 36px;" alt="">  </a> </li>
 
                         {% else %}
-                             <li><a href="{{ url_for('dash') }}"><img src="https://raw.githubusercontent.com/younes5zorro/app_stage_angular_client/master/src/assets/composition.png"  style="width: 35px;height: 36px;" alt=""> Dashboard</a></li>
+                             <li><a href="{{ url_for('dash') }}"><img src="{{ url_for('static', filename='css/dash.png') }}"  style="width: 35px;height: 36px;" alt=""> </a></li>
                             
                         {% endif %}
 
@@ -45,9 +45,9 @@
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a target="_blank" href="https://www.facebook.com/younes.saad.77">Younes JAOUIRI</a></li>
-                        <li><a target="_blank" href="https://www.facebook.com/profile.php?id=100006614358762"> Mohammed BASTA </a></li>
-                        <li><a target="_blank" href="https://www.facebook.com/datasciencefssm/">Big Data Analytics</a></li>
+                            <li><a href="https://www.facebook.com/datasciencefssm/"> <img src="{{ url_for('static', filename='css/logo_rs_ds.png') }}"  style="height: 36px;" alt=""> </a></li>
+
+                        <li> <a href=""></a>  </li>
                       </ul>
 
                 </div>
@@ -59,7 +59,9 @@
 
     {% endblock %}
 
-   
+   <div style ="height: 20px ;text-align: center">
+        <img src="{{ url_for('static', filename='css/footer.png') }}" style="width: 50%;"alt="">
+    </div>
 </div>
 
 

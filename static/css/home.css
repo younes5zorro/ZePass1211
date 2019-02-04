@@ -13,7 +13,7 @@ body
   font-family: "Open Sans", sans-serif;
   /* background: url('movies.jpg') center/cover no-repeat; */
 
-  background-image: url(movies.jpg);
+  background-image: url(logo4_.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -403,16 +403,16 @@ span.star {
     max-width: 1150px;
   }
   
-  #demo,#demo3{
+  /* #demo,#demo3{
     margin-right: 61px;
     margin-left: 20px;
-  }
+  } */
   .r1{
     margin-top: 20px;
     box-shadow: 1px 1px 12px #555;
-    background: #f1e7dc;
+    background: #fff;
     border-radius: 20px;
-
+    /* padding: 15px; */
   }
 
   .boxpopup {
@@ -443,4 +443,11 @@ span.star {
 .navbar-default {
   background-color:transparent !important;
   border-color: transparent !important;
+}
+#shad{
+  margin-left: 80px;
+}
+
+.mar {
+  margin: 15px auto 0;
 }

@@ -37,6 +37,8 @@ def page_home4():
 
 def users(limit):
     users = db_ratusers.find({}).limit(int(limit))
+
+    # users = db_ratusers.aggregate([ { '$sample': { 'size': int(limit) } } ])
     return json_util.dumps((users))
 
 
@@ -165,7 +167,7 @@ def ueractif():
 
 
     for d in dic2:
-        ls.append({"name":"User-"+str(d['_id']),"id":d['_id'],"totale":d["count"],"positive":d['countBigger'],"negative":d['countSmaller']})
+        ls.append({"name":"U-"+str(d['_id']),"id":d['_id'],"totale":d["count"],"positive":d['countBigger'],"negative":d['countSmaller']})
 
     di["subvalues"] = ls
 
@@ -263,8 +265,8 @@ def test(user):
     
 
 # routes app
-app.add_url_rule('/index', 'index', page_acceuil, methods=['GET'])
-app.add_url_rule('/', 'dash', page_home4, methods=['GET'])
+app.add_url_rule('/', 'index', page_acceuil, methods=['GET'])
+app.add_url_rule('/dash', 'dash', page_home4, methods=['GET'])
 
 
 app.add_url_rule('/api/get/<id>/<txt>', 'test', test, methods=['GET'])
