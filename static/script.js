@@ -3,7 +3,7 @@ $(function () {
 				$.get("http://127.0.0.1:5000/api/find/"+$('#select_user').val()+"/"+$('#select_model').val(), function (data) {
                     $('.container_id1').fadeOut();
                     $('.container_id1').empty();
-                    $(".container_id1").append($("<h1>Recommendation For User </h1>"));
+                    $(".container_id1").append($("<h1>Movies to watch</h1>"));
                     $(".container_id1").append($("<div class='fillrec-"+$('#select_user').val()+"' ></div>"));
 
                     $.each(JSON.parse(data), function (i, item) {
@@ -66,7 +66,7 @@ $(function () {
                 $('.container_id1').empty();
 				$.get("http://127.0.0.1:5000/api/movie_user/"+$('#select_user').val(), function (data) {
                     $('.container_id').empty();
-                    $(".container_id").append($("<h1>Films Aimer par User </h1>"));
+                    $(".container_id").append($("<h1>Movies Liked</h1>"));
                     $(".container_id").append($("<div class='fill-"+$('#select_user').val()+"' ></div>"));
 					$.each(JSON.parse(data), function (i, item) {
 

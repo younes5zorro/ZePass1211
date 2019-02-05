@@ -218,7 +218,8 @@ def findbb(user,model):
         return {}
 
     for us in users:
-        for movie in us['not_rating'][:30]:
+        for movie in random.sample(us['not_rating'], 30):
+        # for movie in us['not_rating'][:30]:
             # loaded_model = load_model("models/"+model+".h5")
             dic[movie] = random.uniform(0.1, 5.0)
             # dic[movie] = loaded_model.predict([pd.Series(int(user)),pd.Series(int(movie))])
